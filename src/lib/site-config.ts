@@ -6,6 +6,7 @@ export const SITE = {
   adminEmail: "info@citylandscapesuppliesdepot.com",
   address: "Edmonton, Alberta, Canada",
   mapUrl: "https://maps.google.com/?q=City+Landscape+Supplies+Depot+Edmonton",
+  tagline: "Premium Landscape Supplies in Edmonton",
   hours: [
     { day: "Monday – Friday", time: "8:00 AM – 6:00 PM" },
     { day: "Saturday", time: "9:00 AM – 5:00 PM" },
