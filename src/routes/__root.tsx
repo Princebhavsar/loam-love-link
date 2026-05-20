@@ -9,6 +9,11 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { CartProvider } from "@/components/cart/CartContext";
+import { QuoteSheet } from "@/components/QuoteSheet";
+import { PromoPopup } from "@/components/PromoPopup";
+import { ChatbotWidget } from "@/components/ChatbotWidget";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -113,7 +118,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <CartProvider>
+        <Outlet />
+        <QuoteSheet />
+        <PromoPopup />
+        <ChatbotWidget />
+        <Toaster richColors position="top-right" />
+      </CartProvider>
     </QueryClientProvider>
   );
 }
