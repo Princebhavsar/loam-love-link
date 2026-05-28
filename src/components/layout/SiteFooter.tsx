@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Twitter, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { SITE } from "@/lib/site-config";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
@@ -12,9 +12,10 @@ export function SiteFooter() {
           <img src={logo} alt={SITE.name} className="h-14 w-auto brightness-0 invert" />
           <p className="mt-4 text-sm opacity-80">{SITE.tagline}</p>
           <div className="mt-4 flex gap-3 opacity-90">
-            <a href={SITE.socials.facebook} aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
-            <a href={SITE.socials.instagram} aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
-            <a href={SITE.socials.twitter} aria-label="Twitter"><Twitter className="h-5 w-5" /></a>
+            <a href={SITE.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
+            <a href={SITE.socials.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
+            <a href={SITE.socials.twitter} target="_blank" rel="noreferrer" aria-label="X (Twitter)"><Twitter className="h-5 w-5" /></a>
+            <a href={SITE.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
           </div>
         </div>
         <div>
@@ -31,9 +32,9 @@ export function SiteFooter() {
         <div>
           <h4 className="font-semibold">Visit & Contact</h4>
           <ul className="mt-3 space-y-2 text-sm opacity-90">
-            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5" /> {SITE.phone}</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5" /> {SITE.email}</li>
-            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5" /> {SITE.address}</li>
+            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5" /> <a className="hover:underline" href={`tel:${SITE.phone}`}>{SITE.phone}</a></li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5" /> <a className="hover:underline" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5" /> <a className="hover:underline" target="_blank" rel="noreferrer" href={SITE.mapUrl}>{SITE.address}</a></li>
           </ul>
           <div className="mt-4 space-y-1 text-xs opacity-80">
             {SITE.hours.map((h) => (
