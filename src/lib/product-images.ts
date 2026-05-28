@@ -1,7 +1,10 @@
 import blackMulch from "@/assets/products/black-mulch.jpg";
 import cedarMulch from "@/assets/products/cedar-mulch.jpg";
 import crystalWhite from "@/assets/products/crystal-white-rock.jpg";
+import crystalWhiteUpload from "@/assets/products/crystal-white-rock-upload.png";
 import gardenMix from "@/assets/products/garden-mix.jpg";
+import greyLimestone3065 from "@/assets/products/grey-limestone-30-65mm.png";
+import greyLimestone75150 from "@/assets/products/grey-limestone-75-150mm.png";
 import limestone from "@/assets/products/limestone.jpg";
 import limestone2030 from "@/assets/products/limestone-20-30mm.png";
 import majestic from "@/assets/products/majestic-midnight.jpg";
@@ -21,12 +24,16 @@ import rundle20 from "@/assets/products/rundle-rock-20mm.png";
 import rundle40 from "@/assets/products/rundle-rock-40mm.png";
 import rundle5090 from "@/assets/products/rundle-rock-50-90mm.png";
 import topsoil from "@/assets/products/topsoil.jpg";
+import washRoundRock20 from "@/assets/products/wash-round-rock-20mm.png";
+import washRoundRock40 from "@/assets/products/wash-round-rock-40mm.png";
+import washRoundRock50 from "@/assets/products/wash-round-rock-50mm.png";
+import washRoundRock50100 from "@/assets/products/wash-round-rock-50-100mm.png";
 import washRock from "@/assets/products/wash-rock.jpg";
 
 const map: Record<string, string> = {
   "black-mulch.jpg": blackMulch,
   "cedar-mulch.jpg": cedarMulch,
-  "crystal-white-rock.jpg": crystalWhite,
+  "crystal-white-rock.jpg": crystalWhiteUpload,
   "garden-mix.jpg": gardenMix,
   "limestone.jpg": limestone,
   "majestic-midnight.jpg": majestic,
@@ -51,6 +58,12 @@ const slugMap: Record<string, string> = {
   "rundle-50-90mm": rundle5090,
   "rundle-rock-20mm": rundle20,
   "rundle-rock-40mm": rundle40,
+  "wash-rocks-20mm": washRoundRock20,
+  "wash-rocks-40-50mm": washRoundRock50,
+  "wash-rocks-40mm": washRoundRock40,
+  "wash-rocks-50-100mm": washRoundRock50100,
+  "limestone-30-65mm": greyLimestone3065,
+  "limestone-75-100mm": greyLimestone75150,
 };
 
 export function productImage(path?: string | null, slug?: string | null): string {
