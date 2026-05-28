@@ -62,7 +62,7 @@ export function QuoteSheet() {
                 <ul className="space-y-3">
                   {cart.items.map((it) => (
                     <li key={it.product_id} className="flex gap-3 rounded-lg border border-border p-3">
-                      <img src={productImage(it.image_path)} alt="" className="h-16 w-16 rounded object-cover" />
+                      <img src={productImage(it.image_path, it.slug)} alt={it.name} className="h-16 w-16 rounded object-cover" />
                       <div className="flex-1">
                         <p className="text-sm font-semibold">{it.name}</p>
                         <p className="text-xs text-muted-foreground">${it.price_per_yard.toFixed(2)} / yard</p>

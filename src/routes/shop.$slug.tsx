@@ -36,7 +36,7 @@ function ProductDetail() {
     <div className="mx-auto max-w-6xl px-4 py-12">
       <Link to="/shop" className="text-sm text-muted-foreground hover:text-primary">← Back to shop</Link>
       <div className="mt-6 grid gap-10 md:grid-cols-2">
-        <img src={productImage(p.image_path)} alt={p.name} className="aspect-square w-full rounded-xl object-cover" />
+        <img src={productImage(p.image_path, p.slug)} alt={p.name} className="aspect-square w-full rounded-xl object-cover" />
         <div>
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">{p.category}</p>
           <h1 className="mt-2 text-4xl font-bold">{p.name}</h1>

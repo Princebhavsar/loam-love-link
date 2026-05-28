@@ -37,7 +37,7 @@ function ProductGrid() {
       {data.products.slice(0, 8).map((p) => (
         <div key={p.id} className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition hover:shadow-md">
           <Link to="/shop/$slug" params={{ slug: p.slug }} className="block overflow-hidden">
-            <img src={productImage(p.image_path)} alt={p.name} className="aspect-square w-full object-cover transition group-hover:scale-105" loading="lazy" />
+            <img src={productImage(p.image_path, p.slug)} alt={p.name} className="aspect-square w-full object-cover transition group-hover:scale-105" loading="lazy" />
           </Link>
           <div className="flex flex-1 flex-col p-4">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">{p.category}</p>
