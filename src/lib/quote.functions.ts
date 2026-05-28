@@ -14,8 +14,6 @@ const quoteSchema = z.object({
     .array(
       z.object({
         product_id: z.string().uuid(),
-        name: z.string().max(200),
-        price_per_yard: z.number().nonnegative(),
         yards: z.number().positive().max(1000),
       }),
     )
@@ -26,7 +24,31 @@ const quoteSchema = z.object({
 export const submitQuote = createServerFn({ method: "POST" })
   .inputValidator((input) => quoteSchema.parse(input))
   .handler(async ({ data }) => {
-    const subtotal = data.items.reduce(
+    // Fetch authoritative prices server-side; never trust client-supplied prices.
+    const productIds = Array.from(new Set(data.items.map((i) => i.product_id)));
+    const { data: products, error: prodErr } = await supabaseAdmin
+      .from("products")
+      .select("id, name, price_per_yard, is_active")
+      .in("id", productIds);
+    if (prodErr) throw new Error(prodErr.message);
+    const productMap = new Map(
+      (products ?? [])
+        .filter((p) => p.is_active)
+        .map((p) => [p.id, p]),
+    );
+    if (productMap.size !== productIds.length) {
+      throw new Error("One or more products are invalid or inactive");
+    }
+    const pricedItems = data.items.map((i) => {
+      const p = productMap.get(i.product_id)!;
+      return {
+        product_id: i.product_id,
+        name: p.name,
+        price_per_yard: Number(p.price_per_yard),
+        yards: i.yards,
+      };
+    });
+    const subtotal = pricedItems.reduce(
       (s, i) => s + i.price_per_yard * i.yards,
       0,
     );
@@ -40,7 +62,7 @@ export const submitQuote = createServerFn({ method: "POST" })
         delivery_address: data.delivery_address ?? null,
         pickup_time: data.pickup_time ?? null,
         notes: data.notes ?? null,
-        items: data.items,
+        items: pricedItems,
         subtotal,
       })
       .select("id")
