@@ -1,6 +1,5 @@
 import blackMulch from "@/assets/products/black-mulch.jpg";
 import cedarMulch from "@/assets/products/cedar-mulch.jpg";
-import crystalWhite from "@/assets/products/crystal-white-rock.jpg";
 import crystalWhiteUpload from "@/assets/products/crystal-white-rock-upload.png";
 import gardenMix from "@/assets/products/garden-mix.jpg";
 import greyLimestone3065 from "@/assets/products/grey-limestone-30-65mm.png";
