@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, ShoppingCart, Menu, X } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin, ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
 import { SITE } from "@/lib/site-config";
@@ -33,9 +33,10 @@ export function SiteHeader() {
             </a>
           </div>
           <div className="flex items-center gap-3 opacity-90">
-            <a href={SITE.socials.facebook} aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
-            <a href={SITE.socials.instagram} aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
-            <a href={SITE.socials.twitter} aria-label="Twitter"><Twitter className="h-4 w-4" /></a>
+            <a href={SITE.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
+            <a href={SITE.socials.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
+            <a href={SITE.socials.twitter} target="_blank" rel="noreferrer" aria-label="X (Twitter)"><Twitter className="h-4 w-4" /></a>
+            <a href={SITE.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
           </div>
         </div>
       </div>
