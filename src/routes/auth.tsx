@@ -56,7 +56,7 @@ function AuthPage() {
         <h1 className="text-2xl font-bold">{mode === "signup" ? "Create account" : "Sign in"}</h1>
         <p className="text-xs text-muted-foreground">
           {mode === "signup"
-            ? "Sign up with mailbox.orbitarc@gmail.com to be auto-granted admin access."
+            ? "Contact your administrator to receive access."
             : "Welcome back."}
         </p>
         <input required type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
