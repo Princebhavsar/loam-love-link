@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RentalsRouteImport } from './routes/rentals'
 import { Route as PromoRouteImport } from './routes/promo'
@@ -21,6 +22,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/promo': typeof PromoRoute
   '/rentals': typeof RentalsRoute
   '/shop': typeof ShopRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/promo': typeof PromoRoute
   '/rentals': typeof RentalsRoute
   '/shop': typeof ShopRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/promo': typeof PromoRoute
   '/rentals': typeof RentalsRoute
   '/shop': typeof ShopRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/promo'
     | '/rentals'
     | '/shop'
+    | '/sitemap.xml'
     | '/blog/$slug'
     | '/shop/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/promo'
     | '/rentals'
     | '/shop'
+    | '/sitemap.xml'
     | '/blog/$slug'
     | '/shop/$slug'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/promo'
     | '/rentals'
     | '/shop'
+    | '/sitemap.xml'
     | '/blog/$slug'
     | '/shop/$slug'
   fileRoutesById: FileRoutesById
@@ -169,10 +181,18 @@ export interface RootRouteChildren {
   PromoRoute: typeof PromoRoute
   RentalsRoute: typeof RentalsRoute
   ShopRoute: typeof ShopRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shop': {
       id: '/shop'
       path: '/shop'
@@ -283,6 +303,7 @@ const rootRouteChildren: RootRouteChildren = {
   PromoRoute: PromoRoute,
   RentalsRoute: RentalsRoute,
   ShopRoute: ShopRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

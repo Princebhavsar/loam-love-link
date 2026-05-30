@@ -49,7 +49,16 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs opacity-70">
-        © {new Date().getFullYear()} {SITE.name}. Built by {SITE.builtBy}.
+        © {new Date().getFullYear()} {SITE.name}. Built by{" "}
+        <a
+          href="https://orbitarc.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="underline hover:text-primary"
+        >
+          {SITE.builtBy}
+        </a>
+        .
       </div>
     </footer>
   );
