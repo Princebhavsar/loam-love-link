@@ -153,9 +153,9 @@ function PostBody() {
               <h2 className="text-xl font-bold">Recommended next steps</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {guide.relatedLinks.map((link) => (
-                  <Link key={link.label} to={link.to} params={link.params} className="inline-flex items-center gap-1 rounded-md border border-input bg-background px-4 py-2 text-sm font-semibold hover:bg-accent">
+                  <a key={link.label} href={link.href} className="inline-flex items-center gap-1 rounded-md border border-input bg-background px-4 py-2 text-sm font-semibold hover:bg-accent">
                     {link.label}<ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </section>
