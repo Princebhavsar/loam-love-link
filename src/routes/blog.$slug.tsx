@@ -88,8 +88,11 @@ function PostBody() {
   const { data } = useSuspenseQuery({ queryKey: ["post", slug], queryFn: () => getPost({ data: { slug } }) });
   const { data: all } = useSuspenseQuery({ queryKey: ["posts"], queryFn: () => listPosts() });
   const p = data.post!;
+  const guide = getBlogGuide(p.slug);
   const cover = blogCover(p.cover_image, 0);
   const related = all.posts.filter((x) => x.slug !== p.slug).slice(0, 4);
+  const intro = guide?.intro ?? [p.content ?? ""];
+  const sections = guide?.sections ?? [];
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <Link to="/blog" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
@@ -98,12 +101,65 @@ function PostBody() {
       <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_320px]">
         <article>
           <img src={cover} alt={p.title} className="aspect-video w-full rounded-xl object-cover" />
-          <p className="mt-6 text-xs uppercase tracking-widest text-primary">
-            {p.published_at ? new Date(p.published_at).toLocaleDateString() : "Blog"}
-          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-primary">
+            <span className="inline-flex items-center gap-1"><CalendarDays className="h-3.5 w-3.5" />{p.published_at ? new Date(p.published_at).toLocaleDateString() : "Blog"}</span>
+            {guide?.readingTime && <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{guide.readingTime}</span>}
+          </div>
           <h1 className="mt-2 text-3xl font-bold leading-tight md:text-4xl">{p.title}</h1>
           {p.excerpt && <p className="mt-3 text-lg text-muted-foreground">{p.excerpt}</p>}
-          <div className="prose prose-neutral mt-8 max-w-none whitespace-pre-line text-foreground">{p.content}</div>
+          {guide?.keywords && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {guide.keywords.map((keyword) => <span key={keyword} className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">{keyword}</span>)}
+            </div>
+          )}
+
+          <div className="mt-8 space-y-5 text-base leading-7 text-foreground">
+            {intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
+
+          {sections.length > 0 ? (
+            <div className="mt-10 space-y-10">
+              {sections.map((section) => (
+                <section key={section.id} id={section.id} className="scroll-mt-24 border-t border-border pt-8">
+                  <h2 className="text-2xl font-bold leading-tight">{section.title}</h2>
+                  <div className="mt-4 space-y-4 text-base leading-7 text-muted-foreground">
+                    {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                  {section.bullets && (
+                    <ul className="mt-5 grid gap-2 text-sm text-foreground sm:grid-cols-2">
+                      {section.bullets.map((item) => (
+                        <li key={item} className="flex gap-2 rounded-md bg-muted/60 p-3"><CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-primary" />{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div className="prose prose-neutral mt-8 max-w-none whitespace-pre-line text-foreground">{p.content}</div>
+          )}
+
+          {guide?.checklist && (
+            <section className="mt-12 rounded-xl border border-border bg-card p-6">
+              <h2 className="text-xl font-bold">Project checklist</h2>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {guide.checklist.map((item) => <li key={item} className="flex gap-2 text-sm text-muted-foreground"><CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-primary" />{item}</li>)}
+              </ul>
+            </section>
+          )}
+
+          {guide?.relatedLinks && (
+            <section className="mt-8 rounded-xl border border-border bg-muted/40 p-6">
+              <h2 className="text-xl font-bold">Recommended next steps</h2>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {guide.relatedLinks.map((link) => (
+                  <Link key={link.label} to={link.to} params={link.params} className="inline-flex items-center gap-1 rounded-md border border-input bg-background px-4 py-2 text-sm font-semibold hover:bg-accent">
+                    {link.label}<ArrowRight className="h-4 w-4" />
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           <div className="mt-12 rounded-xl border border-border bg-muted/40 p-6">
             <h2 className="text-lg font-semibold">Need supplies for your project?</h2>
