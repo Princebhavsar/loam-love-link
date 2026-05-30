@@ -1,7 +1,7 @@
 export const SITE = {
   name: "City Landscape Supplies Depot",
   shortName: "City Landscape",
-  phone: "(780) 123-4567",
+  phone: "(780) 490-0306",
   email: "info@citylandscapesuppliesdepot.com",
   adminEmail: "info@citylandscapesuppliesdepot.com",
   address: "Edmonton, Alberta, Canada",
