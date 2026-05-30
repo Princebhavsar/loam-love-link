@@ -68,14 +68,33 @@ export function QuoteSheet() {
                         <p className="text-xs text-muted-foreground">${it.price_per_yard.toFixed(2)} / yard</p>
                         <div className="mt-2 flex items-center gap-2">
                           <label className="text-xs text-muted-foreground">Yards</label>
-                          <input
-                            type="number"
-                            min={0.5}
-                            step={0.5}
-                            value={it.yards}
-                            onChange={(e) => cart.setYards(it.product_id, Number(e.target.value))}
-                            className="w-20 rounded border border-input bg-background px-2 py-1 text-sm"
-                          />
+                          <div className="inline-flex items-center rounded-md border border-input bg-background">
+                            <button
+                              type="button"
+                              onClick={() => cart.setYards(it.product_id, Math.max(0.5, it.yards - 0.5))}
+                              className="h-8 w-8 text-base font-semibold text-foreground hover:bg-accent rounded-l-md"
+                              aria-label="Decrease yards"
+                            >
+                              −
+                            </button>
+                            <input
+                              type="number"
+                              inputMode="decimal"
+                              min={0.5}
+                              step={0.5}
+                              value={it.yards}
+                              onChange={(e) => cart.setYards(it.product_id, Number(e.target.value))}
+                              className="h-8 w-14 border-x border-input bg-background px-2 text-center text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => cart.setYards(it.product_id, it.yards + 0.5)}
+                              className="h-8 w-8 text-base font-semibold text-foreground hover:bg-accent rounded-r-md"
+                              aria-label="Increase yards"
+                            >
+                              +
+                            </button>
+                          </div>
                           <button
                             onClick={() => cart.remove(it.product_id)}
                             className="ml-auto text-muted-foreground hover:text-destructive"
