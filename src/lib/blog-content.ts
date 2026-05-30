@@ -1,5 +1,3 @@
-import type { LinkProps } from "@tanstack/react-router";
-
 export type BlogGuide = {
   slug: string;
   seoTitle: string;
@@ -14,7 +12,7 @@ export type BlogGuide = {
     bullets?: string[];
   }>;
   checklist?: string[];
-  relatedLinks: Array<{ label: string; to: LinkProps["to"]; params?: LinkProps["params"] }>;
+  relatedLinks: Array<{ label: string; href: string }>;
 };
 
 export const BLOG_GUIDES: Record<string, BlogGuide> = {
@@ -83,9 +81,9 @@ export const BLOG_GUIDES: Record<string, BlogGuide> = {
       "Ask about pickup or local delivery availability",
     ],
     relatedLinks: [
-      { label: "Shop Black Mulch", to: "/shop/$slug", params: { slug: "black-mulch" } },
-      { label: "Shop Cedar Mulch", to: "/shop/$slug", params: { slug: "cedar-mulch" } },
-      { label: "Request a delivery quote", to: "/contact" },
+      { label: "Shop Black Mulch", href: "/shop/black-mulch" },
+      { label: "Shop Cedar Mulch", href: "/shop/cedar-mulch" },
+      { label: "Request a delivery quote", href: "/contact" },
     ],
   },
   "choosing-the-right-decorative-rock": {
@@ -148,9 +146,9 @@ export const BLOG_GUIDES: Record<string, BlogGuide> = {
       "Confirm delivery access for bulk orders",
     ],
     relatedLinks: [
-      { label: "Shop Crystal White Rock", to: "/shop/$slug", params: { slug: "crystal-white-rock" } },
-      { label: "Shop Rundle Rock 20mm", to: "/shop/$slug", params: { slug: "rundle-rock-20mm" } },
-      { label: "Browse all decorative rock", to: "/shop" },
+      { label: "Shop Crystal White Rock", href: "/shop/crystal-white-rock" },
+      { label: "Shop Rundle Rock 20mm", href: "/shop/rundle-rock-20mm" },
+      { label: "Browse all decorative rock", href: "/shop" },
     ],
   },
   "spring-landscape-prep": {
@@ -213,9 +211,9 @@ export const BLOG_GUIDES: Record<string, BlogGuide> = {
       "Reserve rental equipment before peak weekends",
     ],
     relatedLinks: [
-      { label: "Shop Garden Mix", to: "/shop/$slug", params: { slug: "garden-mix" } },
-      { label: "Shop Topsoil", to: "/shop/$slug", params: { slug: "topsoil" } },
-      { label: "View equipment rentals", to: "/rentals" },
+      { label: "Shop Garden Mix", href: "/shop/garden-mix" },
+      { label: "Shop Topsoil", href: "/shop/topsoil" },
+      { label: "View equipment rentals", href: "/rentals" },
     ],
   },
 };
