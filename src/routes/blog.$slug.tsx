@@ -4,23 +4,33 @@ import { SiteLayout } from "@/components/layout/SiteLayout";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Suspense } from "react";
 import { blogCover } from "@/lib/blog-images";
+import { getBlogGuide } from "@/lib/blog-content";
 import { SITE } from "@/lib/site-config";
-import { Phone, Mail, MapPin, ArrowLeft } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowLeft, CalendarDays, CheckCircle2, Clock, ArrowRight } from "lucide-react";
+
+const SITE_URL = "https://citylandscapesuppliesdepot.com";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params, loaderData }) => {
     const post = (loaderData as { post?: { title: string; excerpt?: string; cover_image?: string } } | undefined)?.post;
-    const title = post?.title ?? params.slug;
-    const desc = post?.excerpt ?? "Landscaping tips from City Landscape Supplies Depot.";
-    const url = `https://citylandscapesuppliesdepot.com/blog/${params.slug}`;
+    const guide = getBlogGuide(params.slug);
+    const title = guide?.seoTitle ?? post?.title ?? params.slug;
+    const desc = guide?.metaDescription ?? post?.excerpt ?? "Landscaping tips from City Landscape Supplies Depot.";
+    const url = `${SITE_URL}/blog/${params.slug}`;
+    const image = post ? blogCover(post.cover_image, 0) : undefined;
     return {
       meta: [
-        { title: `${title} — Blog | City Landscape Supplies Depot` },
+        { title },
         { name: "description", content: desc },
+        ...(guide ? [{ name: "keywords", content: guide.keywords.join(", ") }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
+        ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: post
@@ -31,7 +41,25 @@ export const Route = createFileRoute("/blog/$slug")({
                 "@context": "https://schema.org",
                 "@type": "Article",
                 headline: post.title,
-                description: post.excerpt,
+                description: desc,
+                image,
+                datePublished: (post as { published_at?: string }).published_at,
+                author: { "@type": "Organization", name: SITE.name },
+                publisher: { "@type": "Organization", name: SITE.name },
+                mainEntityOfPage: url,
+                keywords: guide?.keywords,
+              }),
+            },
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+                  { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+                  { "@type": "ListItem", position: 3, name: post.title, item: url },
+                ],
               }),
             },
           ]
