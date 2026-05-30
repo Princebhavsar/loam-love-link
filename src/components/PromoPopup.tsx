@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import { useRouterState } from "@tanstack/react-router";
 import { claimPromo } from "@/lib/contact.functions";
 import { X, Sparkles } from "lucide-react";
 import { toast } from "sonner";
@@ -8,6 +9,7 @@ const KEY = "clsd_promo_seen_v1";
 
 export function PromoPopup() {
   const claim = useServerFn(claimPromo);
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ customer_name: "", email: "", phone: "" });
   const [loading, setLoading] = useState(false);
@@ -15,10 +17,11 @@ export function PromoPopup() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (pathname.startsWith("/blog/") || pathname === "/admin" || pathname === "/auth") return;
     if (localStorage.getItem(KEY)) return;
     const t = setTimeout(() => setOpen(true), 4000);
     return () => clearTimeout(t);
-  }, []);
+  }, [pathname]);
 
   function close() {
     setOpen(false);

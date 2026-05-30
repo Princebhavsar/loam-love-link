@@ -1,15 +1,25 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatch } from "@tanstack/react-router";
 import { listPosts } from "@/lib/blog.functions";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Suspense } from "react";
 import { blogCover, blogHero } from "@/lib/blog-images";
+import { getBlogGuide } from "@/lib/blog-content";
+
+const SITE_URL = "https://citylandscapesuppliesdepot.com";
 
 export const Route = createFileRoute("/blog")({
-  head: () => ({ meta: [
-    { title: "Blog — Landscaping Tips | City Landscape Supplies Depot" },
-    { name: "description", content: "Seasonal landscaping tips, project ideas and material guides from Edmonton's supply experts." },
-  ]}),
+  head: () => ({
+    meta: [
+      { title: "Landscaping Blog — Edmonton Yard Tips & Guides" },
+      { name: "description", content: "Read Edmonton landscaping tips, mulch and rock guides, spring yard prep checklists, and equipment rental advice from local supply experts." },
+      { name: "keywords", content: "Edmonton landscaping blog, mulch tips, decorative rock guide, spring yard prep, landscape supplies Edmonton" },
+      { property: "og:title", content: "Landscaping Blog — City Landscape Supplies Depot" },
+      { property: "og:description", content: "Practical Edmonton yard guides for mulch, decorative rock, soil, spring prep, rentals and landscape supplies." },
+      { property: "og:url", content: `${SITE_URL}/blog` },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
+  }),
   component: BlogPage,
   loader: ({ context }) => context.queryClient.ensureQueryData({ queryKey: ["posts"], queryFn: () => listPosts() }),
 });
@@ -31,7 +41,7 @@ function PostsList() {
   return (
     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {data.posts.map((p, i) => (
-        <Link key={p.id} to="/blog/$slug" params={{ slug: p.slug }} className="group overflow-hidden rounded-lg border border-border bg-card transition hover:shadow-md">
+        <Link key={p.id} to="/blog/$slug" params={{ slug: p.slug }} className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition hover:shadow-md">
           <img
             src={blogCover(p.cover_image, i)}
             alt={p.title}
@@ -42,6 +52,12 @@ function PostsList() {
             <p className="text-xs text-muted-foreground">{p.published_at ? new Date(p.published_at).toLocaleDateString() : ""}</p>
             <h2 className="mt-1 text-lg font-bold group-hover:text-primary">{p.title}</h2>
             <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{p.excerpt}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {(getBlogGuide(p.slug)?.keywords.slice(0, 2) ?? ["Edmonton landscaping"]).map((keyword) => (
+                <span key={keyword} className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">{keyword}</span>
+              ))}
+            </div>
+            <span className="mt-5 inline-flex text-sm font-semibold text-primary">Read full guide →</span>
           </div>
         </Link>
       ))}
@@ -50,6 +66,9 @@ function PostsList() {
 }
 
 function BlogPage() {
+  const childMatch = useMatch({ from: "/blog/$slug", shouldThrow: false });
+  if (childMatch) return <Outlet />;
+
   return (
     <SiteLayout>
       <section className="relative border-b border-border">
