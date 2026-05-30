@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RentalsRouteImport } from './routes/rentals'
 import { Route as PromoRouteImport } from './routes/promo'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -30,6 +31,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RentalsRoute = RentalsRouteImport.update({
@@ -92,6 +98,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/promo': typeof PromoRoute
   '/rentals': typeof RentalsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/promo': typeof PromoRoute
   '/rentals': typeof RentalsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -121,6 +129,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/promo': typeof PromoRoute
   '/rentals': typeof RentalsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -137,6 +146,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/promo'
     | '/rentals'
+    | '/reset-password'
     | '/shop'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -151,6 +161,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/promo'
     | '/rentals'
+    | '/reset-password'
     | '/shop'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -165,6 +176,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/promo'
     | '/rentals'
+    | '/reset-password'
     | '/shop'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -180,6 +192,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PromoRoute: typeof PromoRoute
   RentalsRoute: typeof RentalsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ShopRoute: typeof ShopRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rentals': {
@@ -302,6 +322,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PromoRoute: PromoRoute,
   RentalsRoute: RentalsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ShopRoute: ShopRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
