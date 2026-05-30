@@ -3,12 +3,7 @@ import { listPosts } from "@/lib/blog.functions";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Suspense } from "react";
-import blogHero from "@/assets/blog-hero.jpg";
-import mulchImg from "@/assets/products/cedar-mulch.jpg";
-import rockImg from "@/assets/products/rundle-rock.jpg";
-import soilImg from "@/assets/products/topsoil.jpg";
-
-const FALLBACK_IMAGES = [mulchImg, rockImg, soilImg];
+import { blogCover, blogHero } from "@/lib/blog-images";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({ meta: [
@@ -38,7 +33,7 @@ function PostsList() {
       {data.posts.map((p, i) => (
         <Link key={p.id} to="/blog/$slug" params={{ slug: p.slug }} className="group overflow-hidden rounded-lg border border-border bg-card transition hover:shadow-md">
           <img
-            src={p.cover_image || FALLBACK_IMAGES[i % FALLBACK_IMAGES.length]}
+            src={blogCover(p.cover_image, i)}
             alt={p.title}
             loading="lazy"
             className="aspect-video w-full object-cover transition group-hover:scale-105"
