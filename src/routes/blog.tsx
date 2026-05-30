@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatch } from "@tanstack/react-router";
 import { listPosts } from "@/lib/blog.functions";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -66,6 +66,9 @@ function PostsList() {
 }
 
 function BlogPage() {
+  const childMatch = useMatch({ from: "/blog/$slug", shouldThrow: false });
+  if (childMatch) return <Outlet />;
+
   return (
     <SiteLayout>
       <section className="relative border-b border-border">
