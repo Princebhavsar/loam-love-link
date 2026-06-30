@@ -11,7 +11,11 @@ export const Route = createFileRoute("/shop")({
     meta: [
       { title: "Shop — Mulch, Rock, Soil & Sand | City Landscape Supplies Depot" },
       { name: "description", content: "Browse our full catalog of premium mulch, decorative rock, topsoil, sand and gravel. Priced per cubic yard with pickup or delivery." },
+      { property: "og:title", content: "Shop Landscape Supplies — City Landscape Supplies Depot Edmonton" },
+      { property: "og:description", content: "Browse premium mulch, decorative rock, topsoil, sand and gravel. Priced per cubic yard with pickup or delivery in Edmonton." },
+      { property: "og:url", content: "https://citylandscapesuppliesdepot.com/shop" },
     ],
+    links: [{ rel: "canonical", href: "https://citylandscapesuppliesdepot.com/shop" }],
   }),
   component: ShopPage,
   loader: ({ context }) =>
@@ -40,7 +44,7 @@ function ShopList() {
             </Link>
             <div className="flex flex-1 flex-col p-4">
               <p className="text-xs uppercase tracking-wide text-muted-foreground">{p.category}</p>
-              <Link to="/shop/$slug" params={{ slug: p.slug }}><h3 className="mt-1 font-semibold hover:text-primary">{p.name}</h3></Link>
+              <Link to="/shop/$slug" params={{ slug: p.slug }}><h2 className="mt-1 font-semibold hover:text-primary">{p.name}</h2></Link>
               <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{p.short_description}</p>
               <p className="mt-2 text-lg font-bold text-primary">${Number(p.price_per_yard).toFixed(2)}<span className="text-xs font-normal text-muted-foreground"> / yard</span></p>
               <button onClick={() => { cart.add({ product_id: p.id, slug: p.slug, name: p.name, price_per_yard: Number(p.price_per_yard), image_path: p.image_path }); cart.setOpen(true); }} className="mt-3 rounded-md bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground hover:opacity-90">Add to Quote</button>
@@ -63,6 +67,7 @@ function ShopPage() {
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-12">
+        <h2 className="sr-only">Product catalog</h2>
         <Suspense fallback={<p className="py-12 text-center text-muted-foreground">Loading…</p>}>
           <ShopList />
         </Suspense>

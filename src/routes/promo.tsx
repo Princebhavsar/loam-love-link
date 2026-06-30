@@ -10,7 +10,12 @@ export const Route = createFileRoute("/promo")({
   head: () => ({ meta: [
     { title: "Claim 10% Off — City Landscape Supplies Depot" },
     { name: "description", content: "New customers save 10% on their first landscape supply order in Edmonton." },
-  ]}),
+    { property: "og:title", content: "Claim 10% Off Your First Order — City Landscape Supplies Depot" },
+    { property: "og:description", content: "New customers save 10% on their first landscape supply order in Edmonton." },
+    { property: "og:url", content: "https://citylandscapesuppliesdepot.com/promo" },
+  ],
+  links: [{ rel: "canonical", href: "https://citylandscapesuppliesdepot.com/promo" }],
+  }),
   component: PromoPage,
 });
 

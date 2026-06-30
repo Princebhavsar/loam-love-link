@@ -6,7 +6,12 @@ export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
     { title: "About — City Landscape Supplies Depot Edmonton" },
     { name: "description", content: "Locally owned Edmonton landscape supply yard delivering quality mulch, rock, soil and sand." },
-  ]}),
+    { property: "og:title", content: "About — City Landscape Supplies Depot" },
+    { property: "og:description", content: "Locally owned Edmonton landscape supply yard delivering quality mulch, rock, soil and sand." },
+    { property: "og:url", content: "https://citylandscapesuppliesdepot.com/about" },
+  ],
+  links: [{ rel: "canonical", href: "https://citylandscapesuppliesdepot.com/about" }],
+  }),
   component: AboutPage,
 });
 

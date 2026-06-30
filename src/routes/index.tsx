@@ -14,9 +14,11 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "City Landscape Supplies Depot — Edmonton Mulch, Rock & Soil" },
       { name: "description", content: "Premium mulch, decorative rock, soil, sand and gravel in Edmonton. Same-day pickup or delivery. Save 10% on your first order." },
-      { property: "og:title", content: "City Landscape Supplies Depot" },
-      { property: "og:description", content: "Edmonton's trusted landscape supply yard." },
+      { property: "og:title", content: "City Landscape Supplies Depot — Edmonton's Landscape Supply Yard" },
+      { property: "og:description", content: "Premium mulch, decorative rock, soil, sand and gravel in Edmonton. Same-day pickup or delivery." },
+      { property: "og:url", content: "https://citylandscapesuppliesdepot.com/" },
     ],
+    links: [{ rel: "canonical", href: "https://citylandscapesuppliesdepot.com/" }],
   }),
   component: Index,
   loader: ({ context }) =>

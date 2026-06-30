@@ -7,7 +7,42 @@ import { SiteLayout } from "@/components/layout/SiteLayout";
 import { useCart } from "@/components/cart/CartContext";
 
 export const Route = createFileRoute("/shop/$slug")({
-  head: ({ params }) => ({ meta: [{ title: `${params.slug} — Shop | City Landscape Supplies Depot` }] }),
+  head: ({ params, loaderData }) => {
+    const product = (loaderData as { product?: { name: string; short_description?: string; price_per_yard?: number | string; image_path?: string } } | undefined)?.product;
+    const name = product?.name ?? params.slug.replace(/-/g, " ");
+    const title = `${name} — City Landscape Supplies Depot`;
+    const desc = product?.short_description ?? `Buy ${name} by the cubic yard in Edmonton with pickup or delivery.`;
+    const url = `https://citylandscapesuppliesdepot.com/shop/${params.slug}`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: product
+        ? [{
+            type: "application/ld+json",
+            children: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: product.name,
+              description: desc,
+              offers: {
+                "@type": "Offer",
+                price: Number(product.price_per_yard ?? 0),
+                priceCurrency: "CAD",
+                availability: "https://schema.org/InStock",
+                url,
+              },
+            }),
+          }]
+        : [],
+    };
+  },
   component: ProductPage,
   loader: async ({ context, params }) => {
     const res = await context.queryClient.ensureQueryData({
@@ -15,6 +50,7 @@ export const Route = createFileRoute("/shop/$slug")({
       queryFn: () => getProduct({ data: { slug: params.slug } }),
     });
     if (!res.product) throw notFound();
+    return res;
   },
   notFoundComponent: () => (
     <SiteLayout>
