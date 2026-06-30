@@ -11,7 +11,35 @@ export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
     { title: "Contact & Request a Quote — City Landscape Supplies Depot" },
     { name: "description", content: "Call, email or send us a message to request a landscape supply quote in Edmonton." },
-  ]}),
+    { property: "og:title", content: "Contact City Landscape Supplies Depot — Edmonton" },
+    { property: "og:description", content: "Call, email or send us a message to request a landscape supply quote in Edmonton." },
+    { property: "og:url", content: "https://citylandscapesuppliesdepot.com/contact" },
+  ],
+  links: [{ rel: "canonical", href: "https://citylandscapesuppliesdepot.com/contact" }],
+  scripts: [{
+    type: "application/ld+json",
+    children: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "City Landscape Supplies Depot",
+      url: "https://citylandscapesuppliesdepot.com/contact",
+      telephone: "(780) 490-0306",
+      email: "info@citylandscapesuppliesdepot.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1404 78 Ave NW",
+        addressLocality: "Edmonton",
+        addressRegion: "AB",
+        postalCode: "T6P 0B8",
+        addressCountry: "CA",
+      },
+      openingHoursSpecification: [
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "18:00" },
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday"], opens: "09:00", closes: "17:00" },
+      ],
+    }),
+  }],
+  }),
   component: ContactPage,
 });
 

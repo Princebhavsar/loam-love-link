@@ -1,0 +1,21 @@
+# City Landscape Supplies Depot
+
+> Edmonton, Alberta landscape supply yard. We sell mulch, decorative rock, topsoil, sand and gravel by the cubic yard, and rent landscaping equipment.
+
+Site: https://citylandscapesuppliesdepot.com
+Address: 1404 78 Ave NW, Edmonton, AB T6P 0B8, Canada
+Phone: (780) 490-0306
+Hours: Mon–Fri 8am–6pm, Sat 9am–5pm, Sun closed
+
+## Key pages
+- Home: https://citylandscapesuppliesdepot.com/
+- Shop (mulch, rock, soil, sand): https://citylandscapesuppliesdepot.com/shop
+- Equipment rentals: https://citylandscapesuppliesdepot.com/rentals
+- Blog (landscaping guides): https://citylandscapesuppliesdepot.com/blog
+- About: https://citylandscapesuppliesdepot.com/about
+- Contact / request a quote: https://citylandscapesuppliesdepot.com/contact
+- 10% off first order: https://citylandscapesuppliesdepot.com/promo
+- Sitemap: https://citylandscapesuppliesdepot.com/sitemap.xml
+
+## How quotes work
+Customers add items to a quote cart (priced per cubic yard) and submit contact details. Our team confirms availability, delivery fee, and total before charging — no online payment required.

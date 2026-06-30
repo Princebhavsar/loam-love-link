@@ -17,7 +17,12 @@ export const Route = createFileRoute("/rentals")({
   head: () => ({ meta: [
     { title: "Equipment Rentals — City Landscape Supplies Depot" },
     { name: "description", content: "Rent landscaping equipment in Edmonton — skid steers, compactors, lawn mowers, sod rollers, landscape rakes and more. Daily rates with promotional discounts." },
-  ]}),
+    { property: "og:title", content: "Equipment Rentals in Edmonton — City Landscape Supplies Depot" },
+    { property: "og:description", content: "Rent skid steers, compactors, lawn mowers, sod rollers and more in Edmonton. Daily rates with promotional discounts." },
+    { property: "og:url", content: "https://citylandscapesuppliesdepot.com/rentals" },
+  ],
+  links: [{ rel: "canonical", href: "https://citylandscapesuppliesdepot.com/rentals" }],
+  }),
   component: RentalsPage,
 });
 
@@ -51,12 +56,13 @@ function RentalsPage() {
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-12">
+        <h2 className="sr-only">Available rental equipment</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {RENTALS.map((r) => (
             <div key={r.name} className="flex flex-col overflow-hidden rounded-lg border border-border bg-card">
               <img src={r.image} alt={`${r.name} rental in Edmonton`} loading="lazy" width={1024} height={1024} className="aspect-video w-full object-cover" />
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-lg font-bold">{r.name}</h3>
+                <h2 className="text-lg font-bold">{r.name}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{r.desc}</p>
                 <p className="mt-4 text-2xl font-bold text-primary">${r.daily}<span className="text-sm font-normal text-muted-foreground"> / day</span></p>
                 <Link to="/contact" className="mt-4 inline-block w-full rounded-md bg-primary py-2 text-center text-sm font-semibold text-primary-foreground hover:opacity-90">Reserve</Link>

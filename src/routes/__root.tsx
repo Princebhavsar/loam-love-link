@@ -95,6 +95,42 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "apple-touch-icon", href: "/logo.svg" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "City Landscape Supplies Depot",
+          url: "https://citylandscapesuppliesdepot.com",
+          logo: "https://citylandscapesuppliesdepot.com/logo.svg",
+          telephone: "(780) 490-0306",
+          email: "info@citylandscapesuppliesdepot.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "1404 78 Ave NW",
+            addressLocality: "Edmonton",
+            addressRegion: "AB",
+            postalCode: "T6P 0B8",
+            addressCountry: "CA",
+          },
+          sameAs: [
+            "https://www.instagram.com/landscapesupplydepot/",
+            "https://x.com/depot_city",
+            "https://www.linkedin.com/in/landscape-depot-70469020b/",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "City Landscape Supplies Depot",
+          url: "https://citylandscapesuppliesdepot.com",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
