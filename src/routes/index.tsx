@@ -66,7 +66,15 @@ function Index() {
     <SiteLayout>
       {/* Hero */}
       <section className="relative">
-        <img src={hero} alt="Edmonton landscape supply yard" className="h-[60vh] w-full object-cover" />
+        <img
+          src={hero}
+          alt="Edmonton landscape supply yard"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+          className="h-[60vh] w-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20" />
         <div className="absolute inset-0 mx-auto flex max-w-7xl flex-col justify-center px-4">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">10% off first order</p>
