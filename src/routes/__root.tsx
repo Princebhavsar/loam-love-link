@@ -86,6 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "City Landscape Supplies Depot — Edmonton" },
       { name: "twitter:description", content: "Premium mulch, decorative rock, topsoil and equipment rentals in Edmonton, Alberta." },
+      { name: "google-site-verification", content: "1HunxQGMkd2agwMuQmA5Eo1PvG4OHfxJr8ysrPsJKu0" },
     ],
     links: [
       {
