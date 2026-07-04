@@ -8,11 +8,12 @@ import { useCart } from "@/components/cart/CartContext";
 
 export const Route = createFileRoute("/shop/$slug")({
   head: ({ params, loaderData }) => {
-    const product = (loaderData as { product?: { name: string; short_description?: string; price_per_yard?: number | string; image_path?: string } } | undefined)?.product;
+    const product = (loaderData as { product?: { name: string; slug?: string; short_description?: string; price_per_yard?: number | string; image_path?: string } } | undefined)?.product;
     const name = product?.name ?? params.slug.replace(/-/g, " ");
     const title = `${name} — City Landscape Supplies Depot`;
     const desc = product?.short_description ?? `Buy ${name} by the cubic yard in Edmonton with pickup or delivery.`;
     const url = `https://citylandscapesuppliesdepot.com/shop/${params.slug}`;
+    const image = product ? productImage(product.image_path, params.slug) : undefined;
     return {
       meta: [
         { title },
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/shop/$slug")({
         { property: "og:description", content: desc },
         { property: "og:type", content: "product" },
         { property: "og:url", content: url },
+        ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: product
@@ -31,6 +33,7 @@ export const Route = createFileRoute("/shop/$slug")({
               "@type": "Product",
               name: product.name,
               description: desc,
+              image,
               offers: {
                 "@type": "Offer",
                 price: Number(product.price_per_yard ?? 0),
