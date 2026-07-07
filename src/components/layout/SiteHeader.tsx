@@ -20,7 +20,7 @@ export function SiteHeader() {
   return (
     <>
       <div className="bg-secondary text-secondary-foreground text-xs sm:text-sm">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-1">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
             <a href={`tel:${SITE.phone}`} className="inline-flex items-center gap-1.5 hover:underline">
               <Phone className="h-3.5 w-3.5" /> {SITE.phone}
@@ -46,7 +46,7 @@ export function SiteHeader() {
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt={SITE.name} className="h-48 w-auto" />
+            <img src={logo} alt={SITE.name} className="h-24 w-auto" />
           </Link>
           <nav className="hidden gap-7 text-sm font-medium text-foreground lg:flex">
             {NAV.map((n) => (
