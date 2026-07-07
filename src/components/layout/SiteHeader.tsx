@@ -31,6 +31,9 @@ export function SiteHeader() {
             <a href={SITE.mapUrl} target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center gap-1.5 hover:underline">
               <MapPin className="h-3.5 w-3.5" /> {SITE.address}
             </a>
+            <a href={SITE.directionsUrl} target="_blank" rel="noreferrer" className="hidden lg:inline-flex items-center gap-1.5 hover:underline">
+              <Navigation className="h-3.5 w-3.5" /> Directions
+            </a>
           </div>
           <div className="flex items-center gap-3 opacity-90">
             <a href={SITE.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
