@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin, ShoppingCart, Menu, X } from "lucide-react";
+import { Phone, Mail, MapPin, Navigation, Facebook, Instagram, Twitter, Linkedin, ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
 import { SITE } from "@/lib/site-config";
@@ -31,6 +31,9 @@ export function SiteHeader() {
             <a href={SITE.mapUrl} target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center gap-1.5 hover:underline">
               <MapPin className="h-3.5 w-3.5" /> {SITE.address}
             </a>
+            <a href={SITE.directionsUrl} target="_blank" rel="noreferrer" className="hidden lg:inline-flex items-center gap-1.5 hover:underline">
+              <Navigation className="h-3.5 w-3.5" /> Directions
+            </a>
           </div>
           <div className="flex items-center gap-3 opacity-90">
             <a href={SITE.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
@@ -42,11 +45,8 @@ export function SiteHeader() {
       </div>
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt={SITE.name} className="h-12 w-auto" />
-            <span className="hidden text-lg font-bold leading-tight text-foreground sm:inline">
-              {SITE.shortName}
-            </span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt={SITE.name} className="h-16 w-auto" />
           </Link>
           <nav className="hidden gap-7 text-sm font-medium text-foreground lg:flex">
             {NAV.map((n) => (
