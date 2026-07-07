@@ -44,7 +44,7 @@ export function SiteHeader() {
         </div>
       </div>
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-1">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4">
           <Link to="/" className="flex items-center">
             <img src={logo} alt={SITE.name} className="h-32 w-auto" />
           </Link>
