@@ -46,7 +46,7 @@ export function SiteHeader() {
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt={SITE.name} className="h-20 w-auto" />
+            <img src={logo} alt={SITE.name} className="h-28 w-auto" />
           </Link>
           <nav className="hidden gap-7 text-sm font-medium text-foreground lg:flex">
             {NAV.map((n) => (
