@@ -188,6 +188,32 @@ function PostBody() {
             </section>
           )}
 
+          {guide?.faqs && (
+            <section className="mt-12 scroll-mt-24 rounded-xl border border-border bg-card p-6" id="faq">
+              <div className="flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-primary" />
+                <h2 className="text-xl font-bold">Frequently asked questions</h2>
+              </div>
+              <div className="mt-5 space-y-3">
+                {guide.faqs.map((faq, i) => (
+                  <div key={i} className="rounded-lg border border-border">
+                    <button
+                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold"
+                      aria-expanded={openFaq === i}
+                    >
+                      {faq.question}
+                      <span className="text-muted-foreground">{openFaq === i ? "−" : "+"}</span>
+                    </button>
+                    {openFaq === i && (
+                      <p className="border-t border-border px-4 py-3 text-sm leading-6 text-muted-foreground">{faq.answer}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           <div className="mt-12 rounded-xl border border-border bg-muted/40 p-6">
             <h2 className="text-lg font-semibold">Need supplies for your project?</h2>
             <p className="mt-1 text-sm text-muted-foreground">
