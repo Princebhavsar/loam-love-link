@@ -2,11 +2,11 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getPost, listPosts } from "@/lib/blog.functions";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { blogCover } from "@/lib/blog-images";
 import { getBlogGuide } from "@/lib/blog-content";
 import { SITE } from "@/lib/site-config";
-import { Phone, Mail, MapPin, ArrowLeft, CalendarDays, CheckCircle2, Clock, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowLeft, CalendarDays, CheckCircle2, Clock, ArrowRight, HelpCircle } from "lucide-react";
 
 const SITE_URL = "https://citylandscapesuppliesdepot.com";
 
@@ -18,6 +18,17 @@ export const Route = createFileRoute("/blog/$slug")({
     const desc = guide?.metaDescription ?? post?.excerpt ?? "Landscaping tips from City Landscape Supplies Depot.";
     const url = `${SITE_URL}/blog/${params.slug}`;
     const image = post ? blogCover(post.cover_image, 0) : undefined;
+    const faqSchema = guide?.faqs
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: guide.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }
+      : null;
     return {
       meta: [
         { title },
@@ -44,6 +55,7 @@ export const Route = createFileRoute("/blog/$slug")({
                 description: desc,
                 image,
                 datePublished: (post as { published_at?: string }).published_at,
+                dateModified: (post as { updated_at?: string }).updated_at ?? (post as { published_at?: string }).published_at,
                 author: { "@type": "Organization", name: SITE.name },
                 publisher: { "@type": "Organization", name: SITE.name },
                 mainEntityOfPage: url,
@@ -62,6 +74,14 @@ export const Route = createFileRoute("/blog/$slug")({
                 ],
               }),
             },
+            ...(faqSchema
+              ? [
+                  {
+                    type: "application/ld+json",
+                    children: JSON.stringify(faqSchema),
+                  },
+                ]
+              : []),
           ]
         : [],
     };
@@ -83,6 +103,12 @@ export const Route = createFileRoute("/blog/$slug")({
   ),
 });
 
+function formatDate(iso?: string | null) {
+  if (!iso) return "Blog";
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-CA", { year: "numeric", month: "short", day: "numeric" });
+}
+
 function PostBody() {
   const { slug } = Route.useParams();
   const { data } = useSuspenseQuery({ queryKey: ["post", slug], queryFn: () => getPost({ data: { slug } }) });
@@ -93,6 +119,7 @@ function PostBody() {
   const related = all.posts.filter((x) => x.slug !== p.slug).slice(0, 4);
   const intro = guide?.intro ?? [p.content ?? ""];
   const sections = guide?.sections ?? [];
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <Link to="/blog" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
@@ -102,7 +129,7 @@ function PostBody() {
         <article>
           <img src={cover} alt={p.title} className="aspect-video w-full rounded-xl object-cover" />
           <div className="mt-6 flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-primary">
-            <span className="inline-flex items-center gap-1"><CalendarDays className="h-3.5 w-3.5" />{p.published_at ? new Date(p.published_at).toLocaleDateString() : "Blog"}</span>
+            <span className="inline-flex items-center gap-1"><CalendarDays className="h-3.5 w-3.5" />{formatDate(p.published_at)}</span>
             {guide?.readingTime && <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{guide.readingTime}</span>}
           </div>
           <h1 className="mt-2 text-3xl font-bold leading-tight md:text-4xl">{p.title}</h1>
@@ -156,6 +183,32 @@ function PostBody() {
                   <a key={link.label} href={link.href} className="inline-flex items-center gap-1 rounded-md border border-input bg-background px-4 py-2 text-sm font-semibold hover:bg-accent">
                     {link.label}<ArrowRight className="h-4 w-4" />
                   </a>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {guide?.faqs && (
+            <section className="mt-12 scroll-mt-24 rounded-xl border border-border bg-card p-6" id="faq">
+              <div className="flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-primary" />
+                <h2 className="text-xl font-bold">Frequently asked questions</h2>
+              </div>
+              <div className="mt-5 space-y-3">
+                {guide.faqs.map((faq, i) => (
+                  <div key={i} className="rounded-lg border border-border">
+                    <button
+                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold"
+                      aria-expanded={openFaq === i}
+                    >
+                      {faq.question}
+                      <span className="text-muted-foreground">{openFaq === i ? "−" : "+"}</span>
+                    </button>
+                    {openFaq === i && (
+                      <p className="border-t border-border px-4 py-3 text-sm leading-6 text-muted-foreground">{faq.answer}</p>
+                    )}
+                  </div>
                 ))}
               </div>
             </section>

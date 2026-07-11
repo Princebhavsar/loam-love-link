@@ -13,6 +13,7 @@ export type BlogGuide = {
   }>;
   checklist?: string[];
   relatedLinks: Array<{ label: string; href: string }>;
+  faqs?: Array<{ question: string; answer: string }>;
 };
 
 export const BLOG_GUIDES: Record<string, BlogGuide> = {
@@ -127,6 +128,33 @@ export const BLOG_GUIDES: Record<string, BlogGuide> = {
       "Use garden mix for beds and topsoil for lawns",
       "Book equipment rentals ahead of peak weekends",
       "Confirm delivery access — gate width, overhead clearance, drop zone",
+    ],
+    faqs: [
+      {
+        question: "What landscape supplies do you stock in Edmonton?",
+        answer:
+          "We carry decorative rock, mulch, screened topsoil, garden mix, road crush, grey limestone, play sand, wash round rock and rental equipment such as landscape rakes, sod rollers, lawn mowers and ground compactors.",
+      },
+      {
+        question: "Do you deliver landscape supplies across Edmonton?",
+        answer:
+          "Yes. We offer local delivery across Edmonton and surrounding areas. You can also pick up from our yard at 1404 78 Ave NW with your own truck or trailer.",
+      },
+      {
+        question: "How do I estimate how much rock or mulch to order?",
+        answer:
+          "Measure length × width × depth in feet, then divide by 27 to get cubic yards. Order a little extra to account for settling and edges. Use our mulch calculator guide or contact us for help.",
+      },
+      {
+        question: "Which decorative rock is best for Edmonton winters?",
+        answer:
+          "All our decorative rock handles freeze-thaw cycles well. Rundle Rock and Crystal White Rock are especially popular for durability, while Majestic Midnight and Purple Sparkle work well for modern designs.",
+      },
+      {
+        question: "Can I rent equipment for only a few hours?",
+        answer:
+          "Absolutely. If you only need a tool for a few hours, call or email ahead and we can discuss short-term rental options for local customers.",
+      },
     ],
     relatedLinks: [
       { label: "Browse all landscape supplies", href: "/shop" },
