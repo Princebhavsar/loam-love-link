@@ -6,6 +6,7 @@ import greyLimestone3065 from "@/assets/products/grey-limestone-30-65mm.png";
 import greyLimestone75150 from "@/assets/products/grey-limestone-75-150mm.png";
 import limestone from "@/assets/products/limestone.jpg";
 import limestone2030 from "@/assets/products/limestone-20-30mm.png";
+import limestoneDust from "@/assets/products/limestone-dust-10mm.jpg";
 import majestic from "@/assets/products/majestic-midnight.jpg";
 import majestic20 from "@/assets/products/majestic-midnight-20mm.png";
 import majestic40 from "@/assets/products/majestic-midnight-40mm.png";
@@ -50,6 +51,7 @@ const map: Record<string, string> = {
 
 const slugMap: Record<string, string> = {
   "limestone-20-30mm": limestone2030,
+  "limestone-dust-10-minus": limestoneDust,
   "majestic-midnight-20mm": majestic20,
   "majestic-midnight-30-65mm": majestic63,
   "majestic-midnight-40mm": majestic40,
