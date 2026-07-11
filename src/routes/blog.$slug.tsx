@@ -129,7 +129,7 @@ function PostBody() {
         <article>
           <img src={cover} alt={p.title} className="aspect-video w-full rounded-xl object-cover" />
           <div className="mt-6 flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-primary">
-            <span className="inline-flex items-center gap-1"><CalendarDays className="h-3.5 w-3.5" />{p.published_at ? new Date(p.published_at).toLocaleDateString() : "Blog"}</span>
+            <span className="inline-flex items-center gap-1"><CalendarDays className="h-3.5 w-3.5" />{formatDate(p.published_at)}</span>
             {guide?.readingTime && <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{guide.readingTime}</span>}
           </div>
           <h1 className="mt-2 text-3xl font-bold leading-tight md:text-4xl">{p.title}</h1>
