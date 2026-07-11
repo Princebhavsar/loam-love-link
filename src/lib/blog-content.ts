@@ -16,6 +16,127 @@ export type BlogGuide = {
 };
 
 export const BLOG_GUIDES: Record<string, BlogGuide> = {
+  "landscape-supplies-edmonton-guide": {
+    slug: "landscape-supplies-edmonton-guide",
+    seoTitle: "Landscape Supplies Edmonton — Rock, Mulch, Soil & Rentals",
+    metaDescription:
+      "Local buyer's guide to landscape supplies in Edmonton: decorative rock, mulch, topsoil, garden mix, sand and equipment rentals with pickup or delivery.",
+    keywords: [
+      "landscape supplies edmonton",
+      "landscape materials edmonton",
+      "landscaping supply stores",
+      "landscaping rock edmonton",
+      "garden supplies edmonton",
+      "landscaping products edmonton",
+      "supplies for landscaping",
+      "white rock landscaping supplies",
+      "garden and landscape supplies",
+      "garden landscaping supplies",
+      "city landscaping",
+      "landscape supplies",
+      "landscape materials",
+    ],
+    readingTime: "8 min read",
+    intro: [
+      "Finding the right landscape supplies in Edmonton can feel overwhelming — there are dozens of rock types, several mulch colours, multiple soil blends and a long list of rental equipment to choose from. The good news is that most residential projects come down to a handful of well-tested products.",
+      "This buyer's guide walks through what to look for at Edmonton landscaping supply stores, how to pick the right materials for common yard projects, and how to save time on pickup and delivery. Everything below is written for local homeowners and contractors working with real Alberta soil, weather and yard layouts.",
+    ],
+    sections: [
+      {
+        id: "why-local",
+        title: "Why buy landscape supplies locally in Edmonton",
+        body: [
+          "Buying garden and landscape supplies from an Edmonton yard means shorter delivery windows, fresher product and staff who understand our freeze-thaw seasons. Local landscaping supply stores can also match rock and mulch to what neighbouring homes already use, which keeps a street looking consistent.",
+          "City Landscape Supplies Depot stocks the most common landscaping products Edmonton yards actually need — decorative rock, mulch, topsoil, garden mix, road crush, play sand and rental equipment — in one location off 78 Ave NW.",
+        ],
+        bullets: [
+          "Same-week pickup and delivery across Edmonton",
+          "Bulk pricing on rock, mulch, soil and aggregate",
+          "Local advice on what works in Alberta yards",
+        ],
+      },
+      {
+        id: "rock",
+        title: "Landscaping rock in Edmonton: sizes, colours and uses",
+        body: [
+          "Landscaping rock is the most popular long-term ground cover in Edmonton because it handles wind, snow and dry summers without breaking down. The right choice depends on colour, size and how the area will be used.",
+          "For bright, modern front yards, Crystal White Rock and other white rock landscaping supplies create high contrast against dark siding. For a natural Rocky Mountain look, Rundle Rock in 20mm, 40mm or 50–90mm works with wood fences and mature trees. For bold contemporary designs, Majestic Midnight and Purple Sparkle add depth beside light concrete and pavers.",
+        ],
+        bullets: [
+          "20mm rock — walkways, borders and side yards",
+          "40mm rock — decorative beds and foundation lines",
+          "50–100mm rock — feature areas, drainage and erosion control",
+          "Wash Round Rock — clean-look drainage and downspout splash zones",
+        ],
+      },
+      {
+        id: "mulch",
+        title: "Mulch for Edmonton garden beds",
+        body: [
+          "Mulch is the fastest way to refresh a yard between seasons. Black, cedar, pine, red and nugget bark are the most requested colours in Edmonton because they hold up well through spring runoff and summer sun.",
+          "For most beds, plan for a 2–3 inch depth. New beds usually need 3 inches; established beds only need a 1–2 inch top-up each spring. If you're not sure how much to order, use our mulch calculator guide before booking pickup or delivery.",
+        ],
+      },
+      {
+        id: "soil",
+        title: "Topsoil, garden mix and specialty blends",
+        body: [
+          "Not all soil is the same. Screened topsoil is ideal for lawn repair and levelling low spots. Garden mix (a 3-1-1 blend of soil, peat and compost) is the better choice for planting beds, raised gardens and vegetable boxes.",
+          "For Edmonton yards recovering from construction, a fresh layer of quality topsoil often makes the difference between patchy grass and a full, healthy lawn by mid-summer.",
+        ],
+        bullets: [
+          "Topsoil — lawn levelling and seed bed prep",
+          "Garden Mix 3-1-1 — planting beds and raised boxes",
+          "Play sand — sandboxes and paver base joints",
+        ],
+      },
+      {
+        id: "aggregate",
+        title: "Aggregate, limestone and road crush",
+        body: [
+          "Aggregate products are the backbone of driveways, parking pads, shed bases and paver installations. Road Crush 20mm compacts into a firm, stable surface that stands up to vehicles and Edmonton winters. Grey Limestone in 20-30mm, 30-65mm and 75-100mm handles pathways, French drains and erosion zones.",
+          "For paver and slab installations, a compacted road crush base topped with a thin layer of screened material gives the cleanest long-term finish.",
+        ],
+      },
+      {
+        id: "rentals",
+        title: "Equipment rentals for DIY landscaping",
+        body: [
+          "The right rental turns a full weekend of manual labour into a few focused hours. Our Edmonton yard rents landscape rakes, sod rollers, lawn mowers and ground compactors alongside our regular material sales.",
+          "If you only need a tool for a few hours instead of a full day, call or email ahead — short-term rental arrangements can often be made for local customers.",
+        ],
+        bullets: [
+          "Landscape rake — levelling soil and spreading materials",
+          "Sod roller — pressing sod and new seed into contact with soil",
+          "Ground compactor — paver bases, gravel pads and driveways",
+          "Lawn mower — quick turf refresh before selling or hosting",
+        ],
+      },
+      {
+        id: "delivery",
+        title: "Pickup, delivery and how much to order",
+        body: [
+          "Most Edmonton homeowners underestimate how much material they need. Measure the area in feet, choose a depth and multiply by that depth in feet to get cubic feet. Divide by 27 for cubic yards. Round up slightly to allow for settling and edges.",
+          "Bring a truck and trailer for pickup, or request local delivery when the order is larger than half a yard. Confirm access to the drop zone in advance — narrow gates and low overhanging branches are the two most common delivery surprises.",
+        ],
+      },
+    ],
+    checklist: [
+      "Measure the project area in feet before ordering",
+      "Choose rock or mulch based on colour and size, not just price",
+      "Use garden mix for beds and topsoil for lawns",
+      "Book equipment rentals ahead of peak weekends",
+      "Confirm delivery access — gate width, overhead clearance, drop zone",
+    ],
+    relatedLinks: [
+      { label: "Browse all landscape supplies", href: "/shop" },
+      { label: "See equipment rentals", href: "/rentals" },
+      { label: "How to calculate mulch", href: "/blog/how-to-calculate-mulch" },
+      { label: "Choosing decorative rock", href: "/blog/choosing-the-right-decorative-rock" },
+      { label: "Spring landscape prep", href: "/blog/spring-landscape-prep" },
+      { label: "Request a delivery quote", href: "/contact" },
+    ],
+  },
   "how-to-calculate-mulch": {
     slug: "how-to-calculate-mulch",
     seoTitle: "How Much Mulch Do I Need? Edmonton Yard Calculator",
