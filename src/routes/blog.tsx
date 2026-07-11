@@ -8,6 +8,12 @@ import { getBlogGuide } from "@/lib/blog-content";
 
 const SITE_URL = "https://citylandscapesuppliesdepot.com";
 
+function formatDate(iso?: string | null) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-CA", { year: "numeric", month: "short", day: "numeric" });
+}
+
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
@@ -49,7 +55,7 @@ function PostsList() {
             className="aspect-video w-full object-cover transition group-hover:scale-105"
           />
           <div className="p-5">
-            <p className="text-xs text-muted-foreground">{p.published_at ? new Date(p.published_at).toLocaleDateString() : ""}</p>
+            <p className="text-xs text-muted-foreground">{formatDate(p.published_at)}</p>
             <h2 className="mt-1 text-lg font-bold group-hover:text-primary">{p.title}</h2>
             <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{p.excerpt}</p>
             <div className="mt-4 flex flex-wrap gap-2">
