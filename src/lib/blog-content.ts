@@ -13,6 +13,7 @@ export type BlogGuide = {
   }>;
   checklist?: string[];
   relatedLinks: Array<{ label: string; href: string }>;
+  faqs?: Array<{ question: string; answer: string }>;
 };
 
 export const BLOG_GUIDES: Record<string, BlogGuide> = {
