@@ -2,11 +2,11 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getPost, listPosts } from "@/lib/blog.functions";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { blogCover } from "@/lib/blog-images";
 import { getBlogGuide } from "@/lib/blog-content";
 import { SITE } from "@/lib/site-config";
-import { Phone, Mail, MapPin, ArrowLeft, CalendarDays, CheckCircle2, Clock, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowLeft, CalendarDays, CheckCircle2, Clock, ArrowRight, HelpCircle } from "lucide-react";
 
 const SITE_URL = "https://citylandscapesuppliesdepot.com";
 
@@ -18,6 +18,17 @@ export const Route = createFileRoute("/blog/$slug")({
     const desc = guide?.metaDescription ?? post?.excerpt ?? "Landscaping tips from City Landscape Supplies Depot.";
     const url = `${SITE_URL}/blog/${params.slug}`;
     const image = post ? blogCover(post.cover_image, 0) : undefined;
+    const faqSchema = guide?.faqs
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: guide.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }
+      : null;
     return {
       meta: [
         { title },
@@ -44,6 +55,7 @@ export const Route = createFileRoute("/blog/$slug")({
                 description: desc,
                 image,
                 datePublished: (post as { published_at?: string }).published_at,
+                dateModified: (post as { updated_at?: string }).updated_at ?? (post as { published_at?: string }).published_at,
                 author: { "@type": "Organization", name: SITE.name },
                 publisher: { "@type": "Organization", name: SITE.name },
                 mainEntityOfPage: url,
@@ -62,6 +74,14 @@ export const Route = createFileRoute("/blog/$slug")({
                 ],
               }),
             },
+            ...(faqSchema
+              ? [
+                  {
+                    type: "application/ld+json",
+                    children: JSON.stringify(faqSchema),
+                  },
+                ]
+              : []),
           ]
         : [],
     };
