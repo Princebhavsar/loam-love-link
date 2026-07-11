@@ -103,6 +103,12 @@ export const Route = createFileRoute("/blog/$slug")({
   ),
 });
 
+function formatDate(iso?: string | null) {
+  if (!iso) return "Blog";
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-CA", { year: "numeric", month: "short", day: "numeric" });
+}
+
 function PostBody() {
   const { slug } = Route.useParams();
   const { data } = useSuspenseQuery({ queryKey: ["post", slug], queryFn: () => getPost({ data: { slug } }) });
@@ -113,6 +119,7 @@ function PostBody() {
   const related = all.posts.filter((x) => x.slug !== p.slug).slice(0, 4);
   const intro = guide?.intro ?? [p.content ?? ""];
   const sections = guide?.sections ?? [];
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <Link to="/blog" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
