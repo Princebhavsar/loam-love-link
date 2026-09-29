@@ -365,6 +365,96 @@ export const BLOG_GUIDES: Record<string, BlogGuide> = {
       { label: "View equipment rentals", href: "/rentals" },
     ],
   },
+  "landscaping-rock-edmonton-white-rock-guide": {
+    slug: "landscaping-rock-edmonton-white-rock-guide",
+    seoTitle: "Landscaping Rock Edmonton — White Rock & Decorative Stone",
+    metaDescription:
+      "Landscaping rock in Edmonton: compare white rock, limestone, Rundle and wash rock, sizes, coverage and prices. Pickup or delivery from City Landscape Supplies Depot.",
+    keywords: [
+      "landscaping rock edmonton",
+      "white rock landscaping supplies",
+      "city landscaping",
+      "landscape rock edmonton",
+      "white decorative rock edmonton",
+      "landscape supplies edmonton",
+    ],
+    readingTime: "7 min read",
+    intro: [
+      "Landscaping rock is one of the most popular upgrades for Edmonton yards — it handles our freeze-thaw cycles, needs no annual top-up and keeps weeds down when installed over fabric.",
+      "This guide covers the landscaping rock Edmonton homeowners buy most, with a close look at white rock landscaping supplies, how much you need, and how City Landscaping customers get it delivered fast.",
+    ],
+    sections: [
+      {
+        id: "popular-rock",
+        title: "The most popular landscaping rock in Edmonton",
+        body: [
+          "Most Edmonton projects use one of five rock families. Each has its own colour, texture and best use, so start by matching the rock to the job rather than the photo.",
+        ],
+        bullets: [
+          "Crystal White Rock — bright, modern and ideal for front beds",
+          "Limestone (20–100mm) — neutral grey-white, great value for large areas",
+          "Rundle Rock — natural earth tones that blend with mature yards",
+          "Wash Rock — rounded river stone, comfortable underfoot and good for drainage",
+          "Majestic Midnight & Purple Spark — dark, high-contrast feature stone",
+        ],
+      },
+      {
+        id: "white-rock",
+        title: "White rock landscaping supplies: what to know",
+        body: [
+          "White rock reflects light, brightens shaded north-facing beds and pairs well with dark siding, black edging and modern planters. It is the go-to choice for crisp, contemporary curb appeal.",
+          "Because white stone shows debris more than darker rock, install quality landscape fabric underneath and use solid edging to keep soil and mulch from mixing in. A leaf blower keeps it looking fresh through the season.",
+        ],
+        bullets: [
+          "Use 20mm for walkable areas and borders",
+          "Use 40mm+ for open beds and around downspouts",
+          "Combine with Majestic Midnight for a two-tone design",
+        ],
+      },
+      {
+        id: "how-much",
+        title: "How much landscaping rock do you need?",
+        body: [
+          "Measure length × width in feet, multiply by depth in feet (2–3 inches is typical, so 0.17–0.25 ft), then divide by 27 to get cubic yards. One cubic yard of 20mm rock covers roughly 100–120 sq ft at 3 inches deep.",
+          "Add about 10% for uneven grades. Our quote cart calculates yardage for you — add products and adjust the quantity with the + and − buttons.",
+        ],
+      },
+      {
+        id: "install",
+        title: "Installing landscaping rock the right way",
+        body: [
+          "Remove sod and weeds, grade the area so water flows away from your foundation, lay commercial landscape fabric, set edging, then spread rock evenly with a rake. For heavier jobs, our ground compactor and landscape rake rentals make prep faster.",
+        ],
+      },
+      {
+        id: "pickup-delivery",
+        title: "Pickup and delivery across Edmonton",
+        body: [
+          "City Landscape Supplies Depot, at 1404 78 Ave NW, stocks landscaping rock in bulk for pickup seven days a week, with delivery across Edmonton, Sherwood Park, St. Albert and surrounding areas. Request a quote and we'll confirm price and delivery timing.",
+        ],
+      },
+    ],
+    checklist: [
+      "Pick rock colour to match your home exterior",
+      "Choose size by use: walkable vs. decorative",
+      "Calculate cubic yards and add 10%",
+      "Install fabric and edging before delivery",
+      "Confirm driveway access for the delivery truck",
+    ],
+    relatedLinks: [
+      { label: "Shop Crystal White Rock", href: "/shop/crystal-white-rock" },
+      { label: "Shop Limestone 20–30mm", href: "/shop/limestone-20-30mm" },
+      { label: "Shop Wash Rock 20mm", href: "/shop/wash-rocks-20mm" },
+      { label: "Rent a ground compactor", href: "/rentals" },
+      { label: "Landscape supplies Edmonton guide", href: "/blog/landscape-supplies-edmonton-guide" },
+    ],
+    faqs: [
+      { question: "What is the best landscaping rock for Edmonton winters?", answer: "Limestone, Rundle Rock and wash rock all handle freeze-thaw cycles well. Angular rock like limestone locks together and moves less; rounded wash rock drains best." },
+      { question: "Does white landscaping rock stay white?", answer: "Yes, if installed over landscape fabric with solid edging. Occasional blowing or rinsing removes dust and leaves." },
+      { question: "How much does landscaping rock cost in Edmonton?", answer: "Price depends on rock type and size. Request a quote online or call (780) 490-0306 for current bulk pricing and delivery rates." },
+      { question: "Do you deliver landscaping rock?", answer: "Yes — we deliver across Edmonton and nearby communities, or you can pick up from our yard at 1404 78 Ave NW." },
+    ],
+  },
 };
 
 export function getBlogGuide(slug: string): BlogGuide | undefined {
