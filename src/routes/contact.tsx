@@ -30,7 +30,7 @@ export const Route = createFileRoute("/contact")({
         streetAddress: "1404 78 Ave NW",
         addressLocality: "Edmonton",
         addressRegion: "AB",
-        postalCode: "T6P 0B8",
+        postalCode: "T6P 1L7",
         addressCountry: "CA",
       },
       openingHoursSpecification: [
