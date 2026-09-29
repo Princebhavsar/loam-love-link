@@ -9,9 +9,8 @@ export const SITE = {
   directionsUrl: "https://share.google/5yFp7OqVal1CXVZ66",
   tagline: "Premium Landscape Supplies in Edmonton",
   hours: [
-    { day: "Monday – Friday", time: "8:00 AM – 6:00 PM" },
-    { day: "Saturday", time: "9:00 AM – 5:00 PM" },
-    { day: "Sunday", time: "Closed" },
+    { day: "Monday – Saturday", time: "8:00 AM – 6:00 PM" },
+    { day: "Sunday", time: "8:00 AM – 4:00 PM" },
   ],
   socials: {
     facebook: "https://www.facebook.com/citylandscapesuppliesdepot/",
