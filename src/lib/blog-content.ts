@@ -455,6 +455,170 @@ export const BLOG_GUIDES: Record<string, BlogGuide> = {
       { question: "Do you deliver landscaping rock?", answer: "Yes — we deliver across Edmonton and nearby communities, or you can pick up from our yard at 1404 78 Ave NW." },
     ],
   },
+  "fall-yard-prep-edmonton": {
+    slug: "fall-yard-prep-edmonton",
+    seoTitle: "Fall Yard Prep in Edmonton — Get Your Landscape Winter-Ready",
+    metaDescription:
+      "Edmonton fall yard checklist: mulch beds, top dress lawns, protect rock gardens and plan spring landscape supplies before the ground freezes.",
+    keywords: ["fall yard prep edmonton", "winterize garden edmonton", "fall mulching", "landscape supplies edmonton", "garden supplies edmonton"],
+    readingTime: "6 min read",
+    intro: [
+      "Edmonton winters are long, and the work you do in October and November decides how your yard looks in May. A few hours of fall prep protects plants from freeze-thaw damage, keeps beds tidy and gives you a head start on spring.",
+      "This checklist covers the jobs that matter most for Alberta yards, and the landscape supplies that make each one easier.",
+    ],
+    sections: [
+      {
+        id: "mulch",
+        title: "Add a fresh layer of mulch before the freeze",
+        body: [
+          "Mulch acts like a blanket for perennial roots. A 2–3 inch layer of cedar, pine or nugget bark mulch keeps soil temperature steadier and reduces frost heave, which can push shallow-rooted plants out of the ground.",
+          "Wait until the top inch of soil is cool but not frozen, then spread mulch evenly and keep it a few inches away from tree trunks and stems.",
+        ],
+        bullets: ["Cedar mulch: long-lasting and aromatic", "Nugget bark: chunky, slow to break down", "Coloured mulch: holds colour through winter"],
+      },
+      {
+        id: "lawn",
+        title: "Top dress and level your lawn",
+        body: [
+          "Fall is a great time to fill low spots with a thin layer of screened topsoil. Grass roots keep growing until the ground freezes, so a light top dressing settles in over winter and gives a smoother lawn in spring.",
+          "Keep top dressing under half an inch at a time so you don't smother the grass.",
+        ],
+      },
+      {
+        id: "rock",
+        title: "Protect rock beds and pathways",
+        body: [
+          "Clear leaves from decorative rock now — wet leaves left all winter stain light rock and break down into soil where weeds can root. A leaf blower on low works best for white and limestone beds.",
+          "Check edging along walkways. If rock has spilled onto the lawn, rake it back and top up thin spots so snow shovelling doesn't scrape fabric bare.",
+        ],
+      },
+      {
+        id: "plan",
+        title: "Plan spring projects now",
+        body: [
+          "Measure the beds, patios and paths you want to redo next year while it's fresh in your mind. Knowing your square footage makes spring quotes faster, and you can book materials and rental equipment before the busy season.",
+        ],
+      },
+    ],
+    checklist: [
+      "Spread 2–3 inches of mulch on perennial beds",
+      "Top dress low lawn spots with topsoil",
+      "Blow leaves off decorative rock",
+      "Fix edging and top up thin rock areas",
+      "Measure spring projects and request a quote",
+    ],
+    relatedLinks: [
+      { label: "Shop mulch, rock & soil", href: "/shop" },
+      { label: "How to calculate mulch", href: "/blog/how-to-calculate-mulch" },
+      { label: "Spring landscape prep", href: "/blog/spring-landscape-prep" },
+      { label: "Request a quote", href: "/contact" },
+    ],
+    faqs: [
+      { question: "When should I mulch in Edmonton in the fall?", answer: "Late September through early November, once soil has cooled but before it freezes solid." },
+      { question: "Can landscape supplies be delivered in late fall?", answer: "Yes — as long as roads and driveways are accessible we deliver across Edmonton. Call (780) 490-0306 to confirm timing." },
+      { question: "Should I remove leaves from rock beds?", answer: "Yes. Leaves trap moisture, stain light rock and create a base for weeds to grow in spring." },
+    ],
+  },
+  "topsoil-vs-garden-mix": {
+    slug: "topsoil-vs-garden-mix",
+    seoTitle: "Topsoil vs Garden Mix — Which Soil Do You Need? (Edmonton)",
+    metaDescription:
+      "Topsoil or garden mix? Learn the difference, which soil to use for lawns, raised beds and gardens in Edmonton, and how much to order by the cubic yard.",
+    keywords: ["topsoil vs garden mix", "topsoil edmonton", "garden soil edmonton", "raised bed soil", "landscape materials"],
+    readingTime: "5 min read",
+    intro: [
+      "Topsoil and garden mix look similar in a pile, but they do very different jobs. Picking the wrong one can mean a patchy lawn or vegetables that never quite take off.",
+      "Here's a plain-language breakdown of each soil and the projects it suits best in Edmonton yards.",
+    ],
+    sections: [
+      {
+        id: "topsoil",
+        title: "What is topsoil?",
+        body: [
+          "Screened topsoil is the upper layer of natural soil, sifted to remove rocks and debris. It's the right choice for building up grade, filling holes, levelling lawns and laying a base under new sod or seed.",
+        ],
+        bullets: ["New sod or seeded lawns", "Grading and filling low spots", "Backfilling around foundations (with proper slope)"],
+      },
+      {
+        id: "garden-mix",
+        title: "What is garden mix?",
+        body: [
+          "Garden mix blends topsoil with compost and other organic matter for more nutrients and better structure. It holds moisture while still draining, which flowers, shrubs and vegetables love.",
+        ],
+        bullets: ["Raised beds and vegetable gardens", "Flower beds and new shrub plantings", "Refreshing tired, compacted beds"],
+      },
+      {
+        id: "how-much",
+        title: "How much soil to order",
+        body: [
+          "Multiply length × width in feet, then multiply by depth in inches divided by 12. Divide the result by 27 to get cubic yards. For new lawns plan on 4–6 inches of topsoil; for raised beds fill to the full bed depth with garden mix.",
+          "Example: a 4 ft × 8 ft raised bed, 12 inches deep, needs about 1.2 cubic yards.",
+        ],
+      },
+    ],
+    checklist: ["Lawn or grading → topsoil", "Flowers, veggies, raised beds → garden mix", "Calculate cubic yards and add 10%", "Book pickup or delivery"],
+    relatedLinks: [
+      { label: "Shop topsoil & garden mix", href: "/shop" },
+      { label: "Rent a sod roller", href: "/rentals" },
+      { label: "Landscape supplies Edmonton guide", href: "/blog/landscape-supplies-edmonton-guide" },
+      { label: "Request a quote", href: "/contact" },
+    ],
+    faqs: [
+      { question: "Can I use garden mix for my lawn?", answer: "You can, but it's usually more than a lawn needs. Screened topsoil is the more economical base for sod and seed." },
+      { question: "Can I plant vegetables in topsoil only?", answer: "They will grow, but garden mix gives better nutrients and moisture balance for higher yields." },
+      { question: "How much soil fits in a pickup truck?", answer: "Most half-ton pickups safely carry about 1 cubic yard of soil. For larger orders, delivery is easier." },
+    ],
+  },
+  "mulch-types-guide": {
+    slug: "mulch-types-guide",
+    seoTitle: "Cedar, Pine, Bark or Coloured Mulch? Edmonton Mulch Guide",
+    metaDescription:
+      "Compare cedar, pine, nugget bark, black and red mulch. Learn which mulch lasts longest, looks best and suits Edmonton gardens, with depth and coverage tips.",
+    keywords: ["types of mulch", "cedar mulch edmonton", "black mulch", "red mulch", "garden landscaping supplies"],
+    readingTime: "5 min read",
+    intro: [
+      "Mulch is one of the easiest ways to make a yard look finished while saving water and cutting down on weeds. But with cedar, pine, bark and coloured options, which one should you pick?",
+    ],
+    sections: [
+      {
+        id: "cedar",
+        title: "Cedar mulch",
+        body: ["Cedar has a natural reddish-brown tone and a fresh scent. It breaks down slowly, so it lasts longer between top-ups, and it's a popular all-round choice for Edmonton flower beds."],
+      },
+      {
+        id: "pine",
+        title: "Pine mulch",
+        body: ["Pine mulch is lighter in colour and budget-friendly. It's great for large areas, tree rings and natural-looking beds."],
+      },
+      {
+        id: "bark",
+        title: "Nugget bark",
+        body: ["Larger bark chunks stay put in wind and rain and take years to break down. They work well around shrubs and on gentle slopes."],
+      },
+      {
+        id: "coloured",
+        title: "Black and red mulch",
+        body: ["Coloured mulches give a bold, modern look. Black makes green foliage pop; red pairs well with brick and warm-toned homes. Both hold colour well through a season."],
+      },
+      {
+        id: "depth",
+        title: "How deep to spread mulch",
+        body: ["Aim for 2–3 inches. One cubic yard covers roughly 100–160 square feet at that depth. Keep mulch a few inches away from stems and tree trunks to prevent rot."],
+      },
+    ],
+    checklist: ["Choose mulch by look and lifespan", "Pull weeds and edge beds first", "Spread 2–3 inches deep", "Top up yearly as needed"],
+    relatedLinks: [
+      { label: "Shop mulch", href: "/shop" },
+      { label: "How to calculate mulch", href: "/blog/how-to-calculate-mulch" },
+      { label: "Rent a wheelbarrow", href: "/rentals" },
+      { label: "Request a quote", href: "/contact" },
+    ],
+    faqs: [
+      { question: "Which mulch lasts the longest?", answer: "Nugget bark and cedar mulch break down the slowest, so they need fewer top-ups." },
+      { question: "Is coloured mulch safe for gardens?", answer: "Our coloured mulches use dyes made for landscaping. For vegetable gardens, many people prefer natural cedar or pine." },
+      { question: "Do I need landscape fabric under mulch?", answer: "It's optional. Fabric helps in weedy areas, but mulch alone works well in planted beds and lets organic matter reach the soil." },
+    ],
+  },
 };
 
 export function getBlogGuide(slug: string): BlogGuide | undefined {
