@@ -619,6 +619,110 @@ export const BLOG_GUIDES: Record<string, BlogGuide> = {
       { question: "Do I need landscape fabric under mulch?", answer: "It's optional. Fabric helps in weedy areas, but mulch alone works well in planted beds and lets organic matter reach the soil." },
     ],
   },
+  "garden-supplies-edmonton": {
+    slug: "garden-supplies-edmonton",
+    seoTitle: "Garden Supplies Edmonton — Soil, Mulch & Rock for Your Garden",
+    metaDescription: "Garden supplies in Edmonton: topsoil, garden mix, mulch and decorative rock by the cubic yard. Learn what to buy for beds, lawns and paths, plus delivery quotes.",
+    keywords: ["garden supplies edmonton", "landscaping supplies edmonton", "garden soil edmonton", "mulch edmonton", "supplies for landscaping"],
+    readingTime: "6 min read",
+    intro: [
+      "Planning a new garden bed, fixing tired soil or finishing beds with mulch? The right garden supplies make the difference between plants that struggle and a yard that thrives through Edmonton's short growing season.",
+      "This guide covers the bulk garden supplies most Edmonton homeowners need, how to pick them, and how much to order.",
+    ],
+    sections: [
+      {
+        id: "soil",
+        title: "Start with the right soil",
+        body: ["Healthy plants start below the surface. Garden mix is a blend made for flower and vegetable beds, while screened topsoil is best for levelling, lawn repair and filling low spots."],
+        bullets: ["Garden mix for beds and raised planters", "Topsoil for lawns and grading", "Top up beds 2–3 inches each spring", "Loosen compacted soil before adding new"],
+      },
+      {
+        id: "mulch",
+        title: "Finish beds with mulch",
+        body: ["A 2–3 inch layer of mulch holds moisture, keeps roots cooler in summer heat and cuts down on weeding. Cedar, pine, nugget bark and coloured mulches all work — choose by look and how long you want it to last."],
+      },
+      {
+        id: "rock",
+        title: "Add rock for paths and borders",
+        body: ["Decorative rock is a low-maintenance option for borders, dry areas and paths between garden beds. Rundle rock, river wash and white rock are popular choices in Edmonton yards."],
+      },
+      {
+        id: "how-much",
+        title: "How much to order",
+        body: ["Measure length × width in feet, multiply by depth in inches, then divide by 324 to get cubic yards. For example, a 10 × 20 ft bed at 3 inches deep needs about 1.9 cubic yards. Add a little extra for settling."],
+      },
+      {
+        id: "tools",
+        title: "Tools that save time",
+        body: ["For bigger jobs, renting a wheelbarrow, landscape rake or sod cutter can save hours of work. Check our rentals page for daily rates."],
+      },
+    ],
+    checklist: ["Measure your beds", "Choose garden mix or topsoil", "Pick a mulch or rock finish", "Calculate cubic yards", "Request a delivery quote"],
+    relatedLinks: [
+      { label: "Shop garden supplies", href: "/shop" },
+      { label: "Topsoil vs garden mix", href: "/blog/topsoil-vs-garden-mix" },
+      { label: "Mulch types guide", href: "/blog/mulch-types-guide" },
+      { label: "Equipment rentals", href: "/rentals" },
+      { label: "Request a quote", href: "/contact" },
+    ],
+    faqs: [
+      { question: "What soil is best for a vegetable garden in Edmonton?", answer: "Garden mix is usually the best choice for vegetable and flower beds because it is blended for planting. Topsoil is better for lawns and filling low areas." },
+      { question: "How do I work out how many yards I need?", answer: "Multiply length × width in feet by depth in inches, then divide by 324. The result is the cubic yards to order." },
+      { question: "Do you deliver garden supplies in Edmonton?", answer: "Yes. Add items to your quote and our team will confirm availability and the delivery fee before you pay." },
+    ],
+  },
+  "landscape-materials-guide": {
+    slug: "landscape-materials-guide",
+    seoTitle: "Landscape Materials Guide — Landscaping Products in Edmonton",
+    metaDescription: "A guide to landscape materials and landscaping products in Edmonton: mulch, decorative rock, gravel, sand and soil — what each is for and how to order by the yard.",
+    keywords: ["landscape materials", "landscaping products edmonton", "landscape supplies", "landscape supply", "city landscaping"],
+    readingTime: "7 min read",
+    intro: [
+      "Every landscaping project uses a mix of materials: something to build the base, something to grow in, and something to finish the surface. Knowing which landscape materials do what helps you order the right amount the first time.",
+      "Here's a plain-language overview of the landscaping products we stock at our Edmonton yard and where each one fits.",
+    ],
+    sections: [
+      {
+        id: "base",
+        title: "Base materials: gravel and road crush",
+        body: ["Road crush and gravel create a firm, well-draining base for patios, sheds, walkways and driveways. Compact them in layers with a plate compactor for a solid surface that won't shift."],
+      },
+      {
+        id: "sand",
+        title: "Sand",
+        body: ["Sand is used for levelling under pavers, filling joints and for sandboxes. Play sand is screened for a softer, cleaner texture."],
+      },
+      {
+        id: "soil",
+        title: "Soil",
+        body: ["Topsoil and garden mix are the growing layer for lawns, beds and planters. Choose garden mix for planting and topsoil for grading and lawn repair."],
+      },
+      {
+        id: "finish",
+        title: "Finishing materials: mulch and decorative rock",
+        body: ["Mulch and decorative rock are the visible top layer. Mulch suits planted beds; rock suits borders, dry areas and low-maintenance spaces."],
+        bullets: ["Cedar, pine and bark mulch", "Black and red mulch", "Rundle, river wash and white rock", "Limestone and specialty stone"],
+      },
+      {
+        id: "ordering",
+        title: "Ordering by the cubic yard",
+        body: ["Bulk landscape materials are sold by the cubic yard. Use length × width (ft) × depth (in) ÷ 324 to estimate. Add items to a quote and our team confirms the total and delivery before you pay."],
+      },
+    ],
+    checklist: ["Plan base, growing and finish layers", "Measure each area", "Estimate cubic yards", "Reserve a compactor if building a base", "Submit a quote request"],
+    relatedLinks: [
+      { label: "Shop landscape materials", href: "/shop" },
+      { label: "Landscape supplies Edmonton guide", href: "/blog/landscape-supplies-edmonton-guide" },
+      { label: "Landscaping rock guide", href: "/blog/landscaping-rock-edmonton-white-rock-guide" },
+      { label: "Rent a plate compactor", href: "/rentals" },
+      { label: "Request a quote", href: "/contact" },
+    ],
+    faqs: [
+      { question: "What is the difference between landscape materials and landscape supplies?", answer: "They mean largely the same thing: bulk products like soil, mulch, rock, sand and gravel used to build and finish a yard." },
+      { question: "What goes under a patio or walkway?", answer: "A compacted layer of road crush or gravel, followed by a thin layer of sand to level pavers." },
+      { question: "Can I pick up landscaping products myself?", answer: "Yes, you can pick up at our yard at 1404 78 Ave NW, Edmonton, or ask for delivery in your quote." },
+    ],
+  },
 };
 
 export function getBlogGuide(slug: string): BlogGuide | undefined {
